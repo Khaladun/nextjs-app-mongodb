@@ -48,7 +48,7 @@ export default function AddUser() {
     }
 
     try {
-      const res = await fetch(`${API_BASE_URL}/api/users`, {
+      const res = await fetch(`https://next-server-v1.onrender.com/api/users`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password, age: Number(age) }),
