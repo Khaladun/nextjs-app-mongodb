@@ -1,6 +1,7 @@
 "use client";
 
 import axios from "axios";
+import { API_BASE_URL } from "../app/config";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { AiTwotoneDelete, AiTwotoneCreditCard } from "react-icons/ai";
@@ -36,7 +37,7 @@ export default function AllUsers() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/users");
+      const response = await axios.get(`${API_BASE_URL}/api/users`);
       setUsers(response.data);
       setFilteredUsers(response.data);
       setLoading(false);
@@ -80,7 +81,7 @@ export default function AllUsers() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/api/users/${id}`);
+      await axios.delete(`${API_BASE_URL}/api/users/${id}`);
       await fetchUsers(); // Refresh data after delete
       alert("User deleted successfully");
     } catch {

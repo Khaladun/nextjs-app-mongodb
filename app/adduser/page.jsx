@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { RiUserAddLine } from "react-icons/ri";
+import { API_BASE_URL } from "../config";
 
 export default function AddUser() {
   const [formData, setFormData] = useState({
@@ -47,7 +48,7 @@ export default function AddUser() {
     }
 
     try {
-      const res = await fetch("http://localhost:4000/api/users", {
+      const res = await fetch(`${API_BASE_URL}/api/users`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password, age: Number(age) }),
