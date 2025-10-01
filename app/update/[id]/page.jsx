@@ -22,7 +22,7 @@ export default function UpdateUser() {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/api/users/${id}`
+          `https://next-server-v1.onrender.com/api/users/${id}`
         );
         const { name, email, age } = response.data;
         setFormData({ name, email, age: age?.toString() || "" });
@@ -57,7 +57,7 @@ export default function UpdateUser() {
     }
 
     try {
-      await axios.patch(`http://localhost:4000/api/users/${id}`, {
+      await axios.patch(`https://next-server-v1.onrender.com/api/users/${id}`, {
         name,
         email,
         age: Number(age),
