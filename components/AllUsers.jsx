@@ -37,7 +37,7 @@ export default function AllUsers() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/users`);
+      const response = await axios.get(`https://next-server-v1.onrender.com/api/users`);
       setUsers(response.data);
       setFilteredUsers(response.data);
       setLoading(false);
@@ -81,7 +81,7 @@ export default function AllUsers() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${API_BASE_URL}/api/users/${id}`);
+      await axios.delete(`https://next-server-v1.onrender.com/api/users/${id}`);
       await fetchUsers(); // Refresh data after delete
       alert("User deleted successfully");
     } catch {
